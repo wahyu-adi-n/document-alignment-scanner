@@ -13,7 +13,7 @@
         <div class="container-fluid m-0 p-0">
           <nav class="navbar navbar-expand-lg bg-primary">
             <div class="container">
-              <a class="navbar-brand text-white" href="/">Document Scanner Alignment</a>
+              <a class="navbar-brand text-white ms-2" href="/">Document Scanner Alignment</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -27,20 +27,36 @@
             </div>
           </nav>
           
-          <div class="row">
-            <div class="col-md-4 p-5 m-5">
-              <h5 class="card-title mb-3 mt-3">Input Original Photo</h5>
+          <div class="row m-5">
+            <div class="col-md-7 ms-5">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi consequuntur aut, nemo quas sunt quis est! Nam voluptate praesentium eum fugiat nemo eligendi atque eos, necessitatibus, molestiae sapiente iure voluptates?
+              </p>
+              <h5 class="card-title mb-3">Input Original Photo</h5>
               <form action="{{ url_for('index') }}" method="POST" enctype="multipart/form-data">
                   <div class="form-group mb-3">
-                      <input type="file" class="form-control-file" name="original" required><br><hr>
+                      <input type="file" class="form-control-file" name="original" accept="image/*" required accept="image/*" onchange="showPreview(event);"><br><hr>
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
+            <div class="col-md-4 ms-3">
+              <img id="preview" width="350" height="500" style="border:1px solid #817f7f;">
+            </div>
+            
           </div>
 
         </div> 
     </body>
+    <script>
+        function showPreview(event){
+          if(event.target.files.length > 0){
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview = document.getElementById("preview");
+            preview.src = src;
+            preview.style.display = "block";
+          }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 </html>
