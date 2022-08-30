@@ -30,6 +30,11 @@ $ docker run -it --rm -p 5000:5000 wahyuadinugroho/focument-alignment:latest
 $ git clone https://github.com/wahyu-adi-n/document-alignment-scanner.git
 ```
 
+### Move and Change Directory
+```
+$ cd document-alignment-scanner 
+```
+
 ### Run on Streamlit
 ```
 $ docker run -it --rm -p 8501:8501 doc_alignment:streamlit
